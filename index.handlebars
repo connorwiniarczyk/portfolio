@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="scripts/utils.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
+		
+		<!-- 3d Model Viewer -->
+		<!-- Import the component -->
+		<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+		<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+		
+		<link rel="stylesheet" href="https://use.typekit.net/mnh5ihx.css">
+		<link rel="stylesheet" href="stylesheets/utils.css">
+		<link rel="stylesheet" href="stylesheets/main.css">
+	</head>
+	<body>
+
+	<header>
+		<a href="#home">
+			<h1>Connor Winiarczyk</h1>
+			<h3>Some of the cool stuff I've worked on.</h3>
+		</a>
+	</header>
+
+	<section class="page page--home tab active" data-link="home">
+		<ul>
+			{{#each pages}}	
+			<li class="page-link">
+			<a href="#{{link}}">
+				<h2>{{title}}</h2>
+				<h3>{{subtitle}}<h3>
+
+				{{#if image}}
+				<img src="{{image}}" alt="{{image}}">
+				{{/if}}
+			</a>
+			</li>
+			{{/each}}
+		</ul>
+	</section>
+
+	{{#each pages}}	
+	<section class="page page--{{link}} tab" data-link="{{link}}">
+		{{{html}}}
+	</section> 
+	{{/each}}
+
+	<script></script>
+
+	</body>
+</html>

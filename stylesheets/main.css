@@ -1,0 +1,44 @@
+:root{
+	--black: #333;
+	--white: #fff;
+}
+
+html {
+	background: var(--white);
+	color: var(--black);
+}
+
+body > * {
+	padding-left: 10px;
+}
+
+header{
+	/* background: var(--black); */
+	/* color: var(--white); */
+	border-bottom: 1px solid grey;
+}
+
+h1, h2, h3, h4 {
+	margin: unset;
+}
+
+.model {
+	width: 100%;
+	height: 50vh;
+}
+
+video {
+	width: 100%;
+}
+
+img {
+	width: 100%;
+}
+
+.page-link{
+	padding: 10px;
+}
+
+.page-link + .page-link{
+	border-top: 1px solid black;
+}
