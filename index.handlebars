@@ -23,12 +23,12 @@
 	</header>
 
 	<section class="gallery page">
-		<div class="slideshow--gallery">
-			{{#each gallery}}
-				<img class="gallery__image" src="{{image}}">
-				<p class="gallery__caption">{{caption}}</p>
-			{{/each}}
+		{{#each gallery}}
+		<div class="gallery__item">
+			<img class="gallery__image" src="{{image}}">
+			<p class="gallery__caption">{{caption}}</p>
 		</div>
+		{{/each}}
 	</section>
 
 	<section class="page page--home tab active" data-link="home">

@@ -47,6 +47,10 @@ const gallery = [
 		image: "media/bms/pack_inside.jpg",
 		caption: "Inside of Pack",
 	},
+	{
+		image: "media/flip_pixel/2020/render_front.jpg",
+		caption: "Flip Pixel Evaluation Board",
+	},
 
 ]
 
