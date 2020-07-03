@@ -24,12 +24,23 @@
 
 	<section class="gallery page">
 		{{#each gallery}}
-		<div class="gallery__item">
+		<a href="#{{id}}" class="gallery__item">
 			<img class="gallery__image" src="{{image}}">
-			<p class="gallery__caption">{{caption}}</p>
-		</div>
+			<p class="gallery__caption">{{title}}</p>
+		</a>
 		{{/each}}
 	</section>
+
+	{{#each gallery}}
+	<div class="lightbox" id="{{id}}">
+		<div class="lightbox__content">
+			<a href="#" class="btn btn--close"></a>
+			<img class="lightbox__image" src="{{image}}">
+			<h3 class="lightbox__title">Title</h3>
+			<p class="lightbox__body">The body</p>
+		</div>
+	</div>
+	{{/each}}
 
 	<section class="page page--home tab active" data-link="home">
 		<ul>

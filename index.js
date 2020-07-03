@@ -37,19 +37,24 @@ const pages = []
 const gallery = [
 	{
 		image: "media/bms/pack_drawing.PNG",
-		caption: "Battery Pack Exterior",
+		id: "pack-drawing",
+		title: "Battery Pack Exterior",
+		description: "A drawing of the battery pack designed for the 2020 Lafayette FSAE car"
 	},
 	{
 		image: "media/bms/segment_diagram.svg",
-		caption: "Active Cell Balancing Diagram",
+		id: "segment-diagram",
+		title: "Active Cell Balancing Diagram",
 	},
 	{
 		image: "media/bms/pack_inside.jpg",
-		caption: "Inside of Pack",
+		id: "pack-inside",
+		title: "Inside of Pack",
 	},
 	{
 		image: "media/flip_pixel/2020/render_front.jpg",
-		caption: "Flip Pixel Evaluation Board",
+		id: "flip-pixel-render-front",
+		title: "Flip Pixel Evaluation Board",
 	},
 
 ]
