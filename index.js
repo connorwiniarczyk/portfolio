@@ -10,28 +10,44 @@ const express = require("express")
 const app = express()
 const http = require("http")
 
-const pages = [
+const pages = []
+// const pages = [
+// 	{
+// 		title: "Battery Management System",
+// 		subtitle: "Designed for the Lafayette FSAE Team",
+// 		image: "media/bms/pack_drawing.PNG",
+// 		path: "pages/bms.md",
+// 		link: "bms",
+// 	},
+// 	{
+// 		title: "Cell Man",
+// 		subtitle: "A Cell Management Board for the BMS Described Above",
+// 		image: "media/bms/cell_man_render.png",
+// 		path: "pages/cell-man.md",
+// 		link: "cell-man",
+// 	},
+// 	{
+// 		title: "Flip Pixel Display",
+// 		subtitle: "A Very Loud Display",
+// 		path: "pages/flip-pixel.md",
+// 		link: "flip-pixel",
+// 	},
+// ]
+
+const gallery = [
 	{
-		title: "Battery Management System",
-		subtitle: "Designed for the Lafayette FSAE Team",
 		image: "media/bms/pack_drawing.PNG",
-		path: "pages/bms.md",
-		link: "bms",
+		caption: "Battery Pack Exterior",
 	},
 	{
-		title: "Cell Man",
-		subtitle: "A Cell Management Board for the BMS Described Above",
-		image: "media/bms/cell_man_render.png",
-		path: "pages/cell-man.md",
-		link: "cell-man",
+		image: "media/bms/segment_diagram.svg",
+		caption: "Active Cell Balancing Diagram",
 	},
 	{
-		title: "Flip Pixel Display",
-		subtitle: "A Very Loud Display",
-		image: "media/flip_pixel/",
-		path: "pages/flip-pixel.md",
-		link: "flip-pixel",
+		image: "media/bms/pack_inside.jpg",
+		caption: "Inside of Pack",
 	},
+
 ]
 
 const render_markdown = function(pages){
@@ -51,7 +67,10 @@ app.get("/", function(req, res){
 	const file = fs.readFileSync(template_path, 'utf8')
 	const template = Handlebars.compile(file)
 	const pages_new = render_markdown(pages)
-	res.send(template({pages: pages_new}))
+	res.send(template({
+		pages: pages_new,
+		gallery: gallery,
+	}))
 })
 
 app.use("/media", express.static('/home/connor/Shared/portfolio_media'))

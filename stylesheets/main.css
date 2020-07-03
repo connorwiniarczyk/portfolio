@@ -8,15 +8,17 @@ html {
 	color: var(--black);
 }
 
-body > * {
-	padding-left: 10px;
-}
-
 header{
 	/* background: var(--black); */
 	/* color: var(--white); */
 	border-bottom: 1px solid grey;
+	padding: 1rem;
 }
+
+section {
+	padding: 1rem;
+}
+
 
 h1, h2, h3, h4 {
 	margin: unset;
@@ -42,3 +44,22 @@ img {
 .page-link + .page-link{
 	border-top: 1px solid black;
 }
+
+
+/* Putting the images on the side of title in project list */
+.page-link img {
+	width: 10rem;
+	float: right;	
+}
+
+.page-link a * {
+	max-width: calc(100% - 12rem);
+}
+
+/* clearfix hack */
+.page-link::after{
+	content: "";
+	clear: both;
+	display: table;
+}
+
