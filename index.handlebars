@@ -15,30 +15,17 @@
 	</head>
 	<body>
 
-	<section class="page page--home tab active" data-link="home">
-		<ul>
-			{{#each pages}}	
-			<li class="page-link">
-			<a href="#{{link}}">
-				<h2>{{title}}</h2>
-				<h3>{{subtitle}}<h3>
+	<header class="landing-page">
+		
+		<h1 class="landing__name">Connor Winiarczyk</h1>
 
-				{{#if image}}
-				<img src="{{image}}" alt="{{image}}">
-				{{/if}}
-			</a>
-			</li>
-			{{/each}}
+		<ul class="landing__details">
+			<li><a href="https://github.com/connorwiniarczyk">github.com/connorwiniarczyk</a></li>
+			<li><a href="https://www.linkedin.com/in/connor-winiarczyk-1b106810b">https://www.linkedin.com/in/connor-winiarczyk-1b106810b</a></li>
+			<li><a href="">connorwiniarczyk@gmail.com</a></li>
 		</ul>
-	</section>
 
-	{{#each pages}}	
-	<section class="page page--{{link}} tab" data-link="{{link}}">
-		{{{html}}}
-	</section> 
-	{{/each}}
-
-	<script></script>
+	</header>
 
 	</body>
 </html>

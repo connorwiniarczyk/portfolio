@@ -8,15 +8,6 @@ html {
 	color: var(--black);
 }
 
-body > * {
-	padding-left: 10px;
-}
-
-header{
-	/* background: var(--black); */
-	/* color: var(--white); */
-	border-bottom: 1px solid grey;
-}
 
 h1, h2, h3, h4 {
 	margin: unset;
@@ -41,4 +32,63 @@ img {
 
 .page-link + .page-link{
 	border-top: 1px solid black;
+}
+
+
+/* styles for the landing page */
+
+.landing-page {
+/* variables */
+	--internal-height: 20rem;
+	--center-space: 2rem;
+}
+
+.landing-page {
+	background: #55ccff;
+	height: 66vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.landing__name {
+	border: 2px solid white;
+	border-radius: 1rem;
+	padding: 1rem;
+	text-align: right;
+	width: 6em;
+
+	height: var(--internal-height);
+	vertical-align: bottom;
+
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	background: #fff;
+	color: #333;
+}
+
+.landing__details {
+	border: 2px solid white;
+	border-radius: 1rem;
+	padding: 1rem;
+	height: var(--internal-height);
+
+	margin-left: var(--center-space);
+	
+	text-decoration: underline;
+	font-family: monospace;
+	font-weight: bold;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+.landing__details li {
+	margin-bottom: 0.5rem;
 }
