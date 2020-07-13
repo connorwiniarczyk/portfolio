@@ -1,0 +1,14 @@
+@font-face {
+	font-family: megrim-regular;
+	src: url(/fonts/Megrim-Regular.ttf);
+}
+
+@font-face {
+	font-family: comfortaa;
+	src: url(/fonts/comfortaa/Comfortaa-VariableFont_wght.ttf);
+}
+
+@font-face {
+	font-family: roboto_mono;
+	src: url(/fonts/roboto/RobotoMono-VariableFont_wght.ttf);
+}

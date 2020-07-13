@@ -55,11 +55,12 @@ app.get("/", function(req, res){
 
 const path_stylesheets = path.join(__dirname, "/stylesheets")
 const path_scripts = path.join(__dirname, "/scripts")
+const path_fonts = path.join(__dirname, "/fonts")
 
-console.log(path_stylesheets)
 
 app.use("/media", express.static('/home/connor/Shared/portfolio_media'))
 app.use("/scripts", express.static(path_scripts))
 app.use("/stylesheets", express.static(path_stylesheets))
+app.use("/fonts", express.static(path_fonts))
 
 app.listen(80)
