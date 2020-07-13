@@ -23,15 +23,55 @@
 		<h1 class="landing__name">Connor Winiarczyk.com</h1>
 		<p> This is a place for me to show off some of the cool stuff I've worked on.</p>
 
-		<ul class="landing__details">
-			<li><a class="landing__link" href="https://github.com/connorwiniarczyk">github.com/connorwiniarczyk</a></li>
-			<li><a class="landing__link" href="https://www.linkedin.com/in/connor-winiarczyk-1b106810b">https://www.linkedin.com/in/connor-winiarczyk-1b106810b</a></li>
-			<li><a class="landing__link" href="">connorwiniarczyk@gmail.com</a></li>
 		</ul>
 
 		</div>		
 
 	</header>
+
+	<section class="gallery page">
+		{{#each gallery}}
+		<a href="#{{id}}" class="gallery__item">
+			<img class="gallery__image" src="{{image}}">
+			<p class="gallery__caption">{{title}}</p>
+		</a>
+		{{/each}}
+	</section>
+
+	{{#each gallery}}
+	<div class="lightbox" id="{{id}}">
+		<div class="lightbox__content">
+			<a href="#" class="btn btn--close"></a>
+			<img class="lightbox__image" src="{{image}}">
+			<h3 class="lightbox__title">Title</h3>
+			<p class="lightbox__body">The body</p>
+		</div>
+	</div>
+	{{/each}}
+
+	<section class="page page--home tab active" data-link="home">
+		<ul>
+			{{#each pages}}	
+			<li class="page-link">
+			<a href="#{{link}}">
+				<h2>{{title}}</h2>
+
+				{{#if image}}
+				<img src="{{image}}" alt="{{image}}">
+				{{/if}}
+
+				<h3>{{subtitle}}<h3>
+			</a>
+			</li>
+			{{/each}}
+		</ul>
+	</section>
+
+	{{#each pages}}	
+	<section class="page page--{{link}} tab" data-link="{{link}}">
+		{{{html}}}
+	</section> 
+	{{/each}}
 
 	</body>
 </html>
