@@ -37,7 +37,6 @@ const pages = [
 const render_markdown = function(pages){
 	const pages_rendered = pages.map(function(page){
 		const markdown_path = path.join(__dirname, page.path)
-		console.log(markdown_path)
 		const markdown_string = fs.readFileSync(markdown_path, "utf8")
 		const html = converter.makeHtml(markdown_string)
 		page.html = html
@@ -54,8 +53,13 @@ app.get("/", function(req, res){
 	res.send(template({pages: pages_new}))
 })
 
+const path_stylesheets = path.join(__dirname, "/stylesheets")
+const path_scripts = path.join(__dirname, "/scripts")
+
+console.log(path_stylesheets)
+
 app.use("/media", express.static('/home/connor/Shared/portfolio_media'))
-app.use("/scripts", express.static('/home/connor/portfolio/scripts'))
-app.use("/stylesheets", express.static('/home/connor/portfolio/stylesheets'))
+app.use("/scripts", express.static(path_scripts))
+app.use("/stylesheets", express.static(path_stylesheets))
 
 app.listen(80)
