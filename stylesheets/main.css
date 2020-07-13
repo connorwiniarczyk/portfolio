@@ -44,7 +44,11 @@ img {
 }
 
 .landing-page {
-	background: #55ccff;
+	background-image: url(/media/personal/background.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	/* background: #55ccff; */
 	height: 66vh;
 
 	display: flex;
