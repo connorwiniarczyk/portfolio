@@ -8,9 +8,6 @@ html {
 	color: var(--black);
 }
 
-
-
-
 h1, h2, h3, h4 {
 	margin: unset;
 }
@@ -24,9 +21,9 @@ video {
 	width: 100%;
 }
 
-/* img { */
-/* 	width: 100%; */
-/* } */
+img {
+	width: 100%;
+}
 
 .page-link{
 	padding: 10px;
@@ -35,6 +32,8 @@ video {
 .page-link + .page-link{
 	border-top: 1px solid black;
 }
+
+
 
 
 /* styles for the landing page */
@@ -68,6 +67,8 @@ video {
 	padding: 1rem;
 }
 
+
+
 .landing__name {
 	text-align: center;
 
@@ -91,34 +92,12 @@ video {
 
 .landing__link:hover {
 	font-weight: 500;
+}
 
 
 .landing__details li {
 	margin-bottom: 0.5rem;
 }
-
-
-/* /1* Putting the images on the side of title in project list *1/ */
-/* .page-link img { */
-/* 	width: 10rem; */
-/* 	float: right; */	
-/* } */
-
-.page-link a * {
-	max-width: calc(100% - 12rem);
-}
-
-/* clearfix hack */
-.page-link::after{
-	content: "";
-	clear: both;
-	display: table;
-}
-
-
-
-
-
 
 /* gallery image and layout styles */
 /* ideas borrowed heavily from Kevn Powell's video: */
@@ -130,23 +109,24 @@ video {
 
 section.gallery{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-	grid-gap: 1em;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	grid-gap: 1rem;
 	justify-content: space-around;
 	align-items: center;
 }
 
 .gallery__item{
-	width: 100%;
-	height: 20rem;
+	/* width: 10rem; */
+	height: 10rem;
 	border: 1px solid black;
 	text-align: center;
+	overflow: hidden;
 }
 
 
 .gallery__image {
-	max-width: 100%;
-	max-height: 20rem;
+	/* max-width: 10rem; */
+	/* max-height: 10rem; */
 	height: auto;
 }
 

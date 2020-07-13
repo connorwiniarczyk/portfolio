@@ -51,7 +51,7 @@ HashLink.onHash = function() {
 	HashLink.exec(hash_method, hash_args)
 }
 
-window.addEventListener("hashchange", HashLink.onHash)
+// window.addEventListener("hashchange", HashLink.onHash)
 
 const Utils = {}
 
@@ -60,44 +60,44 @@ Utils.DomQuery = function(query){
 	return Array.prototype.slice.call(nodelist)
 }
 
-Utils.ParseURLQuery = function(url) {
-	const query = url.substr(1);
-	let result = {};
+// Utils.ParseURLQuery = function(url) {
+// 	const query = url.substr(1);
+// 	let result = {};
 
-	query.split("&").forEach(function(part) {
-		let item = part.split("=");
-		result[item[0]] = decodeURIComponent(item[1]);
-	});
+// 	query.split("&").forEach(function(part) {
+// 		let item = part.split("=");
+// 		result[item[0]] = decodeURIComponent(item[1]);
+// 	});
 
-	return result;
-}
-
-const SlideShow = function(images){
-	this.index = 0
-	this.images = images
-
-	this.show(0)
-}
-
-SlideShow.prototype.show = function(index){
-	this.images.forEach(function(img){
-		img.classList.remove('active')
-	})
-
-	this.images[index].classList.add('active')
-	this.index = index
-}
-
-SlideShow.prototype.next = function(){
-	const next_index = (this.index + 1) % this.images.length
-	this.show(next_index)
-}
-
-// SlideShow.prototype.begin = function(duration){
-//   setTimeout()
+// 	return result;
 // }
 
-window.addEventListener('load', function(){
-	const slides = new SlideShow(document.querySelectorAll('.slideshow--demo img'))
-	document.querySelector(".slideshow--demo").addEventListener('click', () => slides.next())
-})
+// const SlideShow = function(images){
+// 	this.index = 0
+// 	this.images = images
+
+// 	this.show(0)
+// }
+
+// SlideShow.prototype.show = function(index){
+// 	this.images.forEach(function(img){
+// 		img.classList.remove('active')
+// 	})
+
+// 	this.images[index].classList.add('active')
+// 	this.index = index
+// }
+
+// SlideShow.prototype.next = function(){
+// 	const next_index = (this.index + 1) % this.images.length
+// 	this.show(next_index)
+// }
+
+// // SlideShow.prototype.begin = function(duration){
+// //   setTimeout()
+// // }
+
+// window.addEventListener('load', function(){
+// 	const slides = new SlideShow(document.querySelectorAll('.slideshow--demo img'))
+// 	document.querySelector(".slideshow--demo").addEventListener('click', () => slides.next())
+// })
