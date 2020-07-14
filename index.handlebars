@@ -33,19 +33,24 @@
 
 	</header>
 
-	<section class="gallery page">
+	<section id="gallery" class="section--gallery">
+
+		<h1><a href="#gallery"># Gallery </a></h1>
+
+		<div class="gallery">
 		{{#each gallery}}
 		<a href="#{{id}}" class="gallery__item">
 			<img class="gallery__image" src="{{image}}">
-			<p class="gallery__caption">{{title}}</p>
+			<!--<p class="gallery__caption">{{title}}</p>-->
 		</a>
 		{{/each}}
+		</div>
 	</section>
 
 	{{#each gallery}}
 	<div class="lightbox" id="{{id}}">
 		<div class="lightbox__content">
-			<a href="#" class="btn btn--close"></a>
+			<a href="#gallery" class="btn btn--close"></a>
 			<img class="lightbox__image" src="{{image}}">
 			<h3 class="lightbox__title">Title</h3>
 			<p class="lightbox__body">The body</p>

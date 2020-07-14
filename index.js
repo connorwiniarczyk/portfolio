@@ -56,6 +56,12 @@ const gallery = [
 		id: "flip-pixel-render-front",
 		title: "Flip Pixel Evaluation Board",
 	},
+	{
+		image: "media/thumbnails/car.jpg",
+		id: "formula-hybrid-car",
+		title: "Sparky",
+	},
+	{},{},{},{},{},{},{},{},{},{},{},{},
 
 ]
 
