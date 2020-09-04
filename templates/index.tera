@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="scripts/utils.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
+		
+		<!-- 3d Model Viewer -->
+		<!-- Import the component -->
+		<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+		<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+		
+		<link rel="stylesheet" href="https://use.typekit.net/mnh5ihx.css">
+		<link rel="stylesheet" href="stylesheets/fonts.css">
+		<link rel="stylesheet" href="stylesheets/utils.css">
+		<link rel="stylesheet" href="stylesheets/main.css">
+	</head>
+	<body>
+
+	<header class="landing-page">
+
+		<div class="landing-page__content">
+
+		<h1 class="landing__name">Connor Winiarczyk.com</h1>
+		<p> This is a place for me to show off some of the cool stuff I've worked on.</p>
+		
+		<ul class="landing__details">
+			<li><a class="landing__link" href="https://github.com/connorwiniarczyk">github.com/connorwiniarczyk</a></li>
+			<li><a class="landing__link" href="https://www.linkedin.com/in/connor-winiarczyk-1b106810b">https://www.linkedin.com/in/connor-winiarczyk-1b106810b</a></li>
+			<li><a class="landing__link" href="">connorwiniarczyk@gmail.com</a></li>
+		</ul>
+
+		</div>		
+
+	</header>
+
+	<section id="gallery" class="section--gallery">
+		<h1><a href="#gallery"># Gallery </a></h1>
+
+		<div class="gallery">
+		{%for image in gallery%}
+			<div class="gallery__item">
+			<a href="#{{image.id}}" class="gallery__item">
+				<img class="gallery__image" src="{{image.image}}">
+			</a>
+			</div>
+		{%endfor%}
+		</div>
+
+	</section>
+
+	{% for image in gallery %}
+		<div class="lightbox" id="{{image.id}}">
+			<div class="lightbox__content">
+				<a href="#gallery" class="btn btn--close"></a>
+				<img class="lightbox__image" src="{{image.image}}">
+				<h3 class="lightbox__title">{{image.title}}</h3>
+				<p class="lightbox__body">The body</p>
+			</div>
+		</div>
+	{%endfor%}
+
+	</body>
+</html>
