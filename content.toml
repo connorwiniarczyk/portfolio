@@ -1,3 +1,27 @@
+[[projects]]
+id = "bms"
+title = "FSAE Battery Packs"
+thumbnail = "media/bms/pack_drawing.PNG"
+description = "lorem"
+
+[[projects]]
+id = "scada"
+title = "FSAE SCADA System"
+thumbnail = "media/scada/screenshots/grafana-finished-panel.png"
+description = "A Data Aquisition System built for the 2020 Lafayette FSAE car"
+
+[[projects]]
+id = "flip-pixel"
+title = "Flip Pixel Display"
+thumbnail = "media/flip_pixel/2020/render_front.jpg"
+description = "A display made entirely from moving parts and electromagnets"
+
+[[projects]]
+id = "wjrh-website"
+title = "Radio Station Engineering"
+thumbnail = "media/wjrh/logo.png"
+description = "A brand new website for WJRH, Lafayette College's favorite radio station"
+
 [[gallery]]
 id = "sparky"
 title = "2020 FSAE Car"
@@ -29,6 +53,32 @@ title = "CellMan Version 2.2 Render"
 image = "media/bms/cell_man_render.png"
 
 [[gallery]]
-id = "cellman-drawing"
-title = "CellMan Connectors and Interfaces"
-image = "media/bms/cell_man_drawing.svg"
+id = "scada-data-aquisition"
+title = "A diagram of the SCADA data aquisition pipeline"
+image = "media/scada/data-aquisition.svg"
+
+[[gallery]]
+id = "scada-full-design"
+title = "Planned Final Desigin for SCADA"
+image = "media/scada/planned-final-design.svg"
+
+[[gallery]]
+id = "grafana-dashboard"
+title = "A data visualization tool for SCADA built with grafana"
+image = "media/scada/screenshots/grafana-finished-panel.png"
+
+[[gallery]]
+id = "flip-pixel-2018-demo"
+title = ""
+image = "media/flip_pixel/2018/demo.mp4"
+
+[[gallery]]
+id = ""
+title = "CellMan Version 2.2 Render"
+image = "beta.wjrh.org:3000"
+
+[[gallery]]
+id = "cellman-render"
+title = "CellMan Version 2.2 Render"
+image = "media/bms/cell_man_render.png"
+

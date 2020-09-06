@@ -1,0 +1,58 @@
+/* styles for the landing page */
+
+.landing-page {
+	background-image: url(/media/personal/background.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	min-height: 66vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 1rem;
+
+}
+
+.landing-page__content {
+	background: #444;
+	color: white;
+	border: 3px solid white;
+	border-radius: 10px;
+
+	padding: 1rem;
+}
+
+
+
+.landing__name {
+	text-align: center;
+
+	font-family: comfortaa;
+	font-weight: 300;
+	font-size: 2rem;
+
+	transition: font-weight 150ms ease-in-out;
+}
+
+.landing__name:hover {
+	font-weight: 800;
+}
+
+.landing__link {
+	text-decoration: underline;
+	font-family:roboto_mono, monospace;
+	font-weight: 300;
+	transition: font-weight 150ms ease-in-out;
+}
+
+.landing__link:hover {
+	font-weight: 500;
+}
+
+
+.landing__details li {
+	/* margin-bottom: 0.2rem; */
+}

@@ -9,14 +9,24 @@ pub struct GalleryImage {
 }
 
 #[derive(Deserialize, Serialize)]
+pub struct Project {
+    pub id: String,
+    pub title: String,
+    pub description: String,
+    pub thumbnail: String,
+}
+
+#[derive(Deserialize, Serialize)]
 pub struct Content {
 	pub gallery: Vec<GalleryImage>,
+	pub projects: Vec<Project>,
 }
 
 impl Default for Content {
 	fn default () -> Content {
 		Content {
 			gallery: Vec::new(),
+            projects: Vec::new(),
 		}
 	}
 }

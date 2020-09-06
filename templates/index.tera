@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="stylesheets/fonts.css">
 		<link rel="stylesheet" href="stylesheets/utils.css">
 		<link rel="stylesheet" href="stylesheets/main.css">
+		<link rel="stylesheet" href="stylesheets/gallery.css">
+		<link rel="stylesheet" href="stylesheets/landing-page.css">
 	</head>
 	<body>
 
@@ -33,13 +35,30 @@
 
 	</header>
 
+	<section id="projects" class="section--projects">
+		<h1><a href="#projects"># Projects</a></h1>
+		<ul class="projects-list">
+			{%for project in projects%}
+			<li class="project-link">
+				<a href="projects/{{project.id}}" class="" style="display: flex; align-items: center;">
+					<img class="thumbnail" src="{{project.thumbnail}}" style="flex-shrink: 0;"></img>		
+					<div style="margin-left: 2rem;">
+						<h2>{{project.title}}</h2>
+						<p>{{project.description}}</p>
+					</div>		
+				</a>
+			</li>
+			{%endfor%}
+		</ul>
+	</section>
+
 	<section id="gallery" class="section--gallery">
 		<h1><a href="#gallery"># Gallery </a></h1>
 
 		<div class="gallery">
 		{%for image in gallery%}
 			<div class="gallery__item">
-			<a href="#{{image.id}}" class="gallery__item">
+			<a href="#gallery-{{loop.index}}" class="gallery__item">
 				<img class="gallery__image" src="{{image.image}}">
 			</a>
 			</div>
@@ -49,15 +68,19 @@
 	</section>
 
 	{% for image in gallery %}
-		<div class="lightbox" id="{{image.id}}">
+		<div class="lightbox" id="gallery-{{loop.index}}">
 			<div class="lightbox__content">
-				<a href="#gallery" class="btn btn--close"></a>
-				<img class="lightbox__image" src="{{image.image}}">
+				<a href="#close-lightbox" class="btn btn--close"></a>
+				<a href="#gallery-{{loop.index + 1}}" class="btn btn--next btn--arrow"></a>
+				<a href="#gallery-{{loop.index - 1}}" class="btn btn--previous btn--arrow"></a>
+				<object class="lightbox__image" data="{{image.image}}"></object>
 				<h3 class="lightbox__title">{{image.title}}</h3>
 				<p class="lightbox__body">The body</p>
 			</div>
 		</div>
 	{%endfor%}
+
+
 
 	</body>
 </html>
