@@ -77,9 +77,10 @@
 }
 
 .lightbox__content {
-	max-width: 75vw;
-	max-height: 75vh;
-	padding: 1em;
+	/* max-width: 75vw; */
+	/* max-height: 75vh; */
+	width: 80vw;
+	padding: 3em;
 	background: #333;
 	position: relative;
 
@@ -87,8 +88,8 @@
 }
 
 .lightbox__image {
-	max-width: 100%;
-	max-height: 80vh;
+	max-width: 75vw;
+	max-height: 75vh;
 	border-radius: 0.5rem;
 	background: white;
 }
@@ -119,13 +120,13 @@
 
 .lightbox .btn--next {
 	position: absolute;
-	right: 10px;
+	right: 1.5em;
 	top: calc(50%);
 }
 
 .lightbox .btn--previous {
 	position: absolute;
-	left: 10px;
+	left: 1.5em;
 	top: calc(50%);
 }
 
@@ -137,9 +138,9 @@
 }
 
 .btn--arrow.btn--next{
-	transform: rotate(-45deg) scale(2);
+	transform: rotate(-45deg) scale(3);
 }
 
 .btn--arrow.btn--previous{
-	transform: rotate(135deg) scale(2);
+	transform: rotate(135deg) scale(3);
 }

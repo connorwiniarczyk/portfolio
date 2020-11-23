@@ -74,6 +74,10 @@ h1:hover {
 	font-weight: 600;
 }
 
+section.section--gallery {
+	min-height: 95vh;
+}
+
 
 .projects-list {
 	--thumbnail-size: 8rem;

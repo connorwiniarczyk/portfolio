@@ -13,10 +13,19 @@
 		<link rel="stylesheet" href="stylesheets/fonts.css">
 		<link rel="stylesheet" href="stylesheets/utils.css">
 		<link rel="stylesheet" href="stylesheets/main.css">
+		<style>
+			body {
+				max-width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			img {
+				max-width: 100%;
+			}
+		</style>
 	</head>
 	<body>
-
 	{{body}}
-	
 	</body>
 </html>

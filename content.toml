@@ -1,84 +1,207 @@
-[[projects]]
-id = "bms"
-title = "FSAE Battery Packs"
-thumbnail = "media/bms/pack_drawing.PNG"
-description = "lorem"
-
-[[projects]]
-id = "scada"
-title = "FSAE SCADA System"
-thumbnail = "media/scada/screenshots/grafana-finished-panel.png"
-description = "A Data Aquisition System built for the 2020 Lafayette FSAE car"
-
-[[projects]]
-id = "flip-pixel"
-title = "Flip Pixel Display"
-thumbnail = "media/flip_pixel/2020/render_front.jpg"
-description = "A display made entirely from moving parts and electromagnets"
-
-[[projects]]
-id = "wjrh-website"
-title = "Radio Station Engineering"
-thumbnail = "media/wjrh/logo.png"
-description = "A brand new website for WJRH, Lafayette College's favorite radio station"
-
-[[gallery]]
+[[media]]
 id = "sparky"
+media_type = "image"
+url = "media/fsae/car_drawing.jpg"
 title = "2020 FSAE Car"
-image = "media/fsae/car_drawing.jpg"
+description = "A drawing of the Lafayette FSAE car. Named \"Sparky\" for many sparks we produced while making it"
 
-[[gallery]]
+
+# Battery Packs
+
+[[media]]
 id = "pack-drawing"
+media_type = "image"
 title = "Battery Pack Drawing"
-image = "media/bms/pack_drawing.PNG"
+url = "media/bms/pack_drawing.PNG"
+description = "A drawing of one of the car's two battery packs"
 
-[[gallery]]
+[[media]]
 id = "pack-interfaces"
+media_type = "image"
 title = "External Connectors and Interfaces"
-image = "media/bms/pack_drawing_connectors.svg"
+url = "media/bms/pack_drawing_connectors.svg"
+description = "A more detailed pack drawing with connectors and interfaces labeled"
 
-[[gallery]]
+[[media]]
 id = "pack-assembly"
+media_type = "image"
 title = "Inside of Partially Assembled Battery Pack"
-image = "media/bms/pack_inside.jpg"
+url = "media/bms/pack_inside.jpg"
+description = "A picture of the inside of a partially assembled pack. All 16 Prismatic Cells are installed, 5 of which contain working Cell Management Boards, which are communicating with the barely visible PacMan board. Flexible BusBars connect the cell terminals to the pack's high voltage connectors and to the Segment Maintenance Disconnect"
+section = "cellman"
 
-[[gallery]]
+[[media]]
 id = "segment-diagram"
+media_type = "image"
 title = "Segment Power Distribution and Active Balancing"
-image = "media/bms/segment_diagram.svg"
+url = "media/bms/segment_diagram.svg"
+description = "This high level diagram shows how the active balancing circuit integrated into each Segment is intended to function. Flyback Converters on each CellMan board step up a Cell's Voltage to that of the full segment, and power is fed back into the segment through jumpers on the highest and lowest CellMen in the stack."
+section = "cellman"
 
-[[gallery]]
+[[media]]
 id = "cellman-render"
+media_type = "image"
 title = "CellMan Version 2.2 Render"
-image = "media/bms/cell_man_render.png"
+url = "media/bms/cell_man_render.png"
+description = ""
+section = "cellman"
 
-[[gallery]]
+[[media]]
+id = "cellman-schematic-main"
+media_type = "image"
+title = "CellMan High Level Schematic"
+url = "media/bms/cell_man_schematic_main.svg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-schematic-measurements"
+media_type = "image"
+title = "CellMan Measurement Circuits"
+url = "media/bms/cell_man_schematic_measurements.svg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-schematic-balanceing"
+media_type = "image"
+title = "CellMan Active Balancing Circuit"
+url = "media/bms/cell_man_schematic_balancing.svg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan External Connectors"
+url = "media/bms/cell_man_drawing.svg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan External Connectors"
+url = "media/bms/cellman-mounted-above.jpg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan External Connectors"
+url = "media/bms/cellman-mounted-side-view.jpg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan External Connectors"
+url = "media/bms/cellman-populated.jpg"
+description = ""
+section = "cellman"
+
+[[media]]
 id = "scada-data-aquisition"
+media_type = "image"
 title = "A diagram of the SCADA data aquisition pipeline"
-image = "media/scada/data-aquisition.svg"
+url = "media/scada/data-aquisition.svg"
+description = ""
+section = "scada"
 
-[[gallery]]
+[[media]]
 id = "scada-full-design"
+media_type = "image"
 title = "Planned Final Desigin for SCADA"
-image = "media/scada/planned-final-design.svg"
+url = "media/scada/planned-final-design.svg"
+description = ""
+section = "scada"
 
-[[gallery]]
+[[media]]
 id = "grafana-dashboard"
+media_type = "image"
 title = "A data visualization tool for SCADA built with grafana"
-image = "media/scada/screenshots/grafana-finished-panel.png"
+url = "media/scada/screenshots/grafana-finished-panel.png"
+description = ""
+section = "scada"
 
-[[gallery]]
+[[media]]
+id = "flip"
+title = ""
+media_type = "image"
+url = "media/flip_pixel/thumbnail.jpg"
+description = ""
+section = "flippixel"
+
+[[media]]
+id = "sparky"
+media_type = "model"
+url = "/media/flip_pixel/2018/top-level.gltf"
+section = "flippixel"
+title = "Flip Pixel: 5x5 Model"
+description = "This is a 3D model of a 5x5 Flip Pixel display based on where the design was at the end of 2018. Each disc contains a small magnet, and can be rotated to face one direction or the other by running current through a pair of solenoids that sit to either side of it."
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Single Pixel Test"
+media_type = "video"
+url = "media/flip_pixel/2018/demo.mp4"
+section = "flippixel"
+description = "A working demonstration or our first functional pixel. Its being driven by Half H bridges which we built on the prototyping board to the right, and controlled by an ESP-32 running micropython. The Half H bridges are each made up of 2 N channel MOSFETS, whose gates are driven by the combination of a smaller N channel MOSFET and pull up resistor, which allows the the ESP-32 to drive the gates of the high side MOSFETS with a 3.3V signal. We were hoping to eventually build several of these H Bridge modules and combine them to drive more and more pixels simultaneously."
+
+[[media]]
+id = "flip-pixel-schematic-main"
+title = ""
+media_type = "image"
+url = "media/flip_pixel/2020/v0.2/flip-pixel.svg"
+description = ""
+section = "flippixel"
+
+[[media]]
+id = "flip-pixel-schematic-controller"
+title = "Flip Pixel Schematic: Microcontroller"
+media_type = "image"
+url = "media/flip_pixel/2020/v0.2/microcontroller-Controller.svg"
+description = ""
+section = "flippixel"
+
+[[media]]
 id = "flip-pixel-2018-demo"
 title = ""
-image = "media/flip_pixel/2018/demo.mp4"
+media_type = "image"
+url = "media/flip_pixel/2020/v0.2/PixelMatrix-PixelMatrix.svg"
+description = ""
+section = "flippixel"
 
-[[gallery]]
-id = ""
-title = "CellMan Version 2.2 Render"
-image = "beta.wjrh.org:3000"
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Half Flap design"
+media_type = "model"
+url = "media/flip_pixel/2020/half_flap_model.glb"
+description = ""
+section = "flippixel"
 
-[[gallery]]
-id = "cellman-render"
-title = "CellMan Version 2.2 Render"
-image = "media/bms/cell_man_render.png"
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Evaluation Board Demo"
+media_type = "video"
+url = "media/flip_pixel/2020/flip-pixel-board-demo-2.mp4"
+description = ""
+section = "flippixel"
 
+[[media]]
+id = "flip-pixel-2018-demo"
+title = ""
+media_type = "image"
+url = "media/flip_pixel/2020/render_front.png"
+description = ""
+section = "flippixel"
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = ""
+media_type = "image"
+url = "media/flip_pixel/2020/render_back.png"
+description = ""
+section = "flippixel"

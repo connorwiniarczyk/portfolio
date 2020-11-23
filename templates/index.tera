@@ -15,6 +15,10 @@
 		<link rel="stylesheet" href="stylesheets/main.css">
 		<link rel="stylesheet" href="stylesheets/gallery.css">
 		<link rel="stylesheet" href="stylesheets/landing-page.css">
+
+		<!-- <script type="text/javascript"> -->
+		<!-- 	const --> 	
+		<!-- </script> -->
 	</head>
 	<body>
 
@@ -35,52 +39,81 @@
 
 	</header>
 
-	<section id="projects" class="section--projects">
-		<h1><a href="#projects"># Projects</a></h1>
-		<ul class="projects-list">
-			{%for project in projects%}
-			<li class="project-link">
-				<a href="projects/{{project.id}}" class="" style="display: flex; align-items: center;">
-					<img class="thumbnail" src="{{project.thumbnail}}" style="flex-shrink: 0;"></img>		
-					<div style="margin-left: 2rem;">
-						<h2>{{project.title}}</h2>
-						<p>{{project.description}}</p>
-					</div>		
-				</a>
-			</li>
-			{%endfor%}
-		</ul>
-	</section>
+	<style>
+		#projects h1 {
+			margin-top: 2rem;
+		}
+	</style>
 
-	<section id="gallery" class="section--gallery">
-		<h1><a href="#gallery"># Gallery </a></h1>
+	<section id="projects" class="section--projects">
+		<h1>#  CellMan</h1>
+		<p> CellMan is an abbreviation of Cell Management Board, a printed circuit board I designed for Lafayette College's FSAE team as part of our car's Battery Management System. Each CellMan mounts to a prismatic LiFePO cell and measures its voltage and temperature to be reported back to a central Pack Management Board, (PacMan). Each CellMan Board also contains a flyback converter for facilitating an active balancing circuit between the cells.</p>
 
 		<div class="gallery">
-		{%for image in gallery%}
-			<div class="gallery__item">
+		{%for element in media%}
+			{% if element.section == "cellman" %}
 			<a href="#gallery-{{loop.index}}" class="gallery__item">
-				<img class="gallery__image" src="{{image.image}}">
+				<img class="gallery__image" src="{{element.url}}">
 			</a>
-			</div>
+			{% endif %}
 		{%endfor%}
 		</div>
 
+		<h1>#  Flip Pixel</h1>
+		<p> Flip Pixel is an attempt at creating an open source flip dot display for electronics hobbyists and other display enthusiasts.</p>
+
+		<div class="gallery">
+		{%for element in media%}
+			{% if element.section == "flippixel" %}
+			<a href="#gallery-{{loop.index}}" class="gallery__item">
+				<img class="gallery__image" src="{{element.url}}">
+			</a>
+			{% endif %}
+		{%endfor%}
+		</div>
+
+		<h1># Data Aquisition System</h1>
+		<div class="gallery">
+		{%for element in media%}
+			{% if element.section == "scada" %}
+			<a href="#gallery-{{loop.index}}" class="gallery__item">
+				<img class="gallery__image" src="{{element.url}}">
+			</a>
+			{% endif %}
+		{%endfor%}
+		</div>
+
+		<h1>#  WJRH Website</h1>
+		<p>WJRH is Lafayette College's student run radio station. As a member of their engineering team, I've been working to replace their website with a more modern one. It is written using VanillaJS and sports a number of fun features, including a music player and functional spectrum analyzer. The website uses a GraphQL API to query information from the station's various backend resources, such as music metadata and program schedules.</p>
+
+		<h1>#  Remote Radio Shows</h1>
+		<p>In 2020, with no students on campus, WJRH was struggling to produce content. </p>
+
+		<h1>#  Electric Cafe Racer</h1>
+
 	</section>
 
-	{% for image in gallery %}
+	{%for element in media%}
 		<div class="lightbox" id="gallery-{{loop.index}}">
 			<div class="lightbox__content">
 				<a href="#close-lightbox" class="btn btn--close"></a>
 				<a href="#gallery-{{loop.index + 1}}" class="btn btn--next btn--arrow"></a>
 				<a href="#gallery-{{loop.index - 1}}" class="btn btn--previous btn--arrow"></a>
-				<object class="lightbox__image" data="{{image.image}}"></object>
-				<h3 class="lightbox__title">{{image.title}}</h3>
-				<p class="lightbox__body">The body</p>
+
+				<h2 class="lightbox__title">{{element.title}}</h2>
+				{%if element.media_type == "image"%}
+					<object class="lightbox__image" data="{{element.url}}"></object>
+				{%endif%}
+				{%if element.media_type == "video"%}
+					<video class="lightbox__image" controls src="{{element.url}}"></video>
+				{%endif%}
+				{%if element.media_type == "model"%}
+					<model-viewer class="lightbox__image model" src="{{element.url}}" autorotate camera-controls></model-viewer>
+				{%endif%}
+				<p class="lightbox__description">{{element.description}}</p>
 			</div>
 		</div>
 	{%endfor%}
-
-
 
 	</body>
 </html>

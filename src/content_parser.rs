@@ -2,10 +2,13 @@ use std::fs;
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
-pub struct GalleryImage {
+pub struct Media {
 	pub id: String,
+	pub url: String,
+    pub media_type: String,
 	pub title: String,
-	pub image: String,
+    pub description: String,
+    pub section: Option<String>,
 }
 
 #[derive(Deserialize, Serialize)]
@@ -18,15 +21,15 @@ pub struct Project {
 
 #[derive(Deserialize, Serialize)]
 pub struct Content {
-	pub gallery: Vec<GalleryImage>,
-	pub projects: Vec<Project>,
+	pub media: Vec<Media>,
+	// pub projects: Vec<Project>,
 }
 
 impl Default for Content {
 	fn default () -> Content {
 		Content {
-			gallery: Vec::new(),
-            projects: Vec::new(),
+			media: Vec::new(),
+            // projects: Vec::new(),
 		}
 	}
 }
