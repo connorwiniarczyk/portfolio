@@ -1,5 +1,3 @@
-<html>
-	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script type="text/javascript" src="scripts/utils.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
@@ -15,7 +13,9 @@
 		<link rel="stylesheet" href="stylesheets/main.css">
 		<link rel="stylesheet" href="stylesheets/gallery.css">
 		<link rel="stylesheet" href="stylesheets/landing-page.css">
-
+		
+		<!-- social media buttons -->
+		<link rel="stylesheet" href="stylesheets/social-circles.min.css">
 		<!-- <script type="text/javascript"> -->
 		<!-- 	const --> 	
 		<!-- </script> -->
@@ -27,12 +27,16 @@
 		<div class="landing-page__content">
 
 		<h1 class="landing__name">Connor Winiarczyk.com</h1>
-		<p> This is a place for me to show off some of the cool stuff I've worked on.</p>
+		<p>This is a place for me to show off some of the cool stuff I've worked on.</p>
 		
 		<ul class="landing__details">
-			<li><a class="landing__link" href="https://github.com/connorwiniarczyk">github.com/connorwiniarczyk</a></li>
-			<li><a class="landing__link" href="https://www.linkedin.com/in/connor-winiarczyk-1b106810b">https://www.linkedin.com/in/connor-winiarczyk-1b106810b</a></li>
-			<li><a class="landing__link" href="">connorwiniarczyk@gmail.com</a></li>
+			<!-- <a href="https://github.com/connorwiniarczyk" class="icon-github social-button "></a> -->
+			<!-- <a href="http://www.linkedin.com/in/connorwiniarczyk" class="icon-linkedin social-button "></a> -->
+
+
+			<li><span class="icon-github social-button" style="font-size: 1.2em; margin-right: 1em;"></span><a class="landing__link" href="https://github.com/connorwiniarczyk">github.com/connorwiniarczyk</a></li>
+			<li><span class="icon-linkedin social-button" style="font-size: 1.2em; margin-right: 1em;"></span><a class="landing__link" href="https://www.linkedin.com/in/connorwiniarczyk">linkedin.com/in/connorwiniarczyk</a></li>
+			<!-- <li><a class="landing__link" href="">connorwiniarczyk@gmail.com</a></li> -->
 		</ul>
 
 		</div>		
@@ -41,13 +45,32 @@
 
 	<style>
 		#projects h1 {
-			margin-top: 2rem;
+			margin-top: 4rem;
 		}
 	</style>
 
 	<section id="projects" class="section--projects">
+
+		<h1># FSAE Battery Packs and BMS</h1>
+		<p>Each year, members of Lafayette's Electrical and Mechanical Engineering departments work to build an electric car to compete in the FSAE formula hybrid competition. The vast majority of the car is designed and manufactured in house by students.</p>
+
+		<p>As a part of this team, I helped to design and build a new set of battery packs for the car, which came complete with a custom Battery Management System, CAN interface, and numerous safety features. </p>
+
+		<div class="gallery">
+		{%for element in media%}
+			{% if element.section == "fsae" %}
+			<a href="#gallery-{{loop.index}}" class="gallery__item">
+				<img class="gallery__image" src="{{element.url}}">
+			</a>
+			{% endif %}
+		{%endfor%}
+		</div>
+
+
 		<h1>#  CellMan</h1>
-		<p> CellMan is an abbreviation of Cell Management Board, a printed circuit board I designed for Lafayette College's FSAE team as part of our car's Battery Management System. Each CellMan mounts to a prismatic LiFePO cell and measures its voltage and temperature to be reported back to a central Pack Management Board, (PacMan). Each CellMan Board also contains a flyback converter for facilitating an active balancing circuit between the cells.</p>
+		<p>CellMan is an abbreviation of Cell Management Board, a printed circuit board I designed for the FSAE battery pack above as part of its Battery Management System. Functionally, the BMS consists of a network of these CellMan boards controlled over I2C by a central Pack Management (PacMan) Board.</p>
+		
+		<p>Each CellMan mounts to a prismatic LiFePO cell and measures its voltage and temperature to be reported back to PacMan. Each CellMan Board also contains a flyback converter for facilitating an active balancing circuit between the cells.</p>
 
 		<div class="gallery">
 		{%for element in media%}
@@ -60,7 +83,9 @@
 		</div>
 
 		<h1>#  Flip Pixel</h1>
-		<p> Flip Pixel is an attempt at creating an open source flip dot display for electronics hobbyists and other display enthusiasts.</p>
+		<p> Flip Pixel is an attempt at creating an open source flip dot display for electronics hobbyists and other display enthusiasts. I started working on this with in 2018 with my friend Hayden Dodge, and it is still very much a work in progress. Initially, we conceived the idea for a school project when, after shopping online for a flip dot display we could play with, decided that they were way too expensive and that we could easily build our own for less money. We eventually found out that this wasn't true, but the project was interesting enough to keep us motivated even after the course ended. </p>
+
+<p>The display is built from a grid of small, 3D printed discs with small magnets embedded within them. They are free to rotate about one of their axes, and their orientation can be changed by passing current through a pair of solenoids that lie beneath each one.</p>
 
 		<div class="gallery">
 		{%for element in media%}
@@ -72,45 +97,50 @@
 		{%endfor%}
 		</div>
 
-		<h1># Data Aquisition System</h1>
-		<div class="gallery">
-		{%for element in media%}
-			{% if element.section == "scada" %}
-			<a href="#gallery-{{loop.index}}" class="gallery__item">
-				<img class="gallery__image" src="{{element.url}}">
-			</a>
-			{% endif %}
-		{%endfor%}
-		</div>
+		<!-- <h1># SCADA</h1> -->
+		
+		<!-- <p>SCADA </p> -->
 
-		<h1>#  WJRH Website</h1>
-		<p>WJRH is Lafayette College's student run radio station. As a member of their engineering team, I've been working to replace their website with a more modern one. It is written using VanillaJS and sports a number of fun features, including a music player and functional spectrum analyzer. The website uses a GraphQL API to query information from the station's various backend resources, such as music metadata and program schedules.</p>
-
-		<h1>#  Remote Radio Shows</h1>
-		<p>In 2020, with no students on campus, WJRH was struggling to produce content. </p>
-
-		<h1>#  Electric Cafe Racer</h1>
+		<!-- <div class="gallery"> -->
+		<!-- {%for element in media%} -->
+		<!-- 	{% if element.section == "scada" %} -->
+		<!-- 	<a href="#gallery-{{loop.index}}" class="gallery__item"> -->
+		<!-- 		<img class="gallery__image" src="{{element.url}}"> -->
+		<!-- 	</a> -->
+		<!-- 	{% endif %} -->
+		<!-- {%endfor%} -->
+		<!-- </div> -->
 
 	</section>
 
 	{%for element in media%}
 		<div class="lightbox" id="gallery-{{loop.index}}">
-			<div class="lightbox__content">
+			<div class="lightbox__container">
 				<a href="#close-lightbox" class="btn btn--close"></a>
 				<a href="#gallery-{{loop.index + 1}}" class="btn btn--next btn--arrow"></a>
 				<a href="#gallery-{{loop.index - 1}}" class="btn btn--previous btn--arrow"></a>
 
-				<h2 class="lightbox__title">{{element.title}}</h2>
-				{%if element.media_type == "image"%}
-					<object class="lightbox__image" data="{{element.url}}"></object>
-				{%endif%}
-				{%if element.media_type == "video"%}
-					<video class="lightbox__image" controls src="{{element.url}}"></video>
-				{%endif%}
-				{%if element.media_type == "model"%}
-					<model-viewer class="lightbox__image model" src="{{element.url}}" autorotate camera-controls></model-viewer>
-				{%endif%}
-				<p class="lightbox__description">{{element.description}}</p>
+
+				<div class="lightbox__content">
+					{%if element.media_type == "image"%}
+						<img loading="lazy" class="lightbox__image" style="object-fit: contain;" src="{{element.url}}"></img>
+					{%endif%}
+					{%if element.media_type == "video"%}
+						<video class="lightbox__image" controls src="{{element.url}}"></video>
+					{%endif%}
+					{%if element.media_type == "model"%}
+						<model-viewer class="lightbox__image model" src="{{element.url}}" autorotate camera-controls></model-viewer>
+					{%endif%}
+					
+					{%if element.title%}
+					<div style="margin-left: 2rem; flex-basis: 50%; display: flex; flex-direction: column; justify-content: center;">
+						<h2 class="lightbox__title">{{element.title}}</h2>
+						<p class="lightbox__description">{{element.description}}</p>
+					</div>
+					{%endif%}
+				
+				</div>
+
 			</div>
 		</div>
 	{%endfor%}

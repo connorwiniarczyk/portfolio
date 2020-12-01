@@ -6,8 +6,8 @@ pub struct Media {
 	pub id: String,
 	pub url: String,
     pub media_type: String,
-	pub title: String,
-    pub description: String,
+	pub title: Option<String>,
+    pub description: Option<String>,
     pub section: Option<String>,
 }
 
