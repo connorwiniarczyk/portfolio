@@ -19,22 +19,7 @@ fn index() -> Template {
 	Template::render("index", &context)
 }
 
-#[get("/projects/<page>")]
-fn page(page: String) -> Template{
-    let filepath = format!("./public/pages/{}.md", &page);
-    let markdown = fs::read_to_string(&filepath).expect("");
-    let html = markdown_to_html(&markdown, &ComrakOptions::default());
-
-    let mut context = HashMap::new();
-    context.insert("body".to_string(), &html);
-
-    Template::render("project", &context)
-}
-
 fn main() {
-    let md = fs::read_to_string("./public/pages/bms.md").expect("error");
-    println!("{}", markdown_to_html(&md, &ComrakOptions::default()));
-
 	rocket::ignite()
 		.attach(Template::fairing())
 		.mount("/", routes![index, page])

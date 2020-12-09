@@ -1,0 +1,223 @@
+[[media]]
+id = "sparky"
+media_type = "image"
+url = "media/fsae/car_drawing.jpg"
+title = "2020 FSAE Car"
+section = "fsae"
+description = "A drawing of the Lafayette FSAE car. Named \"Sparky\" for many sparks we produced while making it. The main battery packs are mounted to either side of the cockpit."
+
+
+# Battery Packs
+
+# [[media]]
+# id = "pack-drawing"
+# media_type = "image"
+# title = "Pack Exterior"
+# url = "media/bms/pack_drawing.PNG"
+# section = "fsae"
+# description = "An exterior drawing of a battery pack. "
+
+
+[[media]]
+id = "pack-assembly"
+media_type = "image"
+title = "Construction"
+url = "media/bms/pack_inside.jpg"
+description = "<p>Each battery is built of 16 Prismatic, Lithium Iron Phosphate Cells connected in series. The cells are divided into two segments of 8 cells each, which are isolated from eathother by a garolite wall. Segments are connected together by a large switch, called a Segment Maintenance Disconnect or SMD, which can be opened to completely disable the pack and prep it for safer maintenance.</p><p>A third compartment at the front of the pack is used to mount all electronics that are not a part of either segment, including the Pack Management (PacMan) board, the Pack Display Panel, fuses, and isolation relays. Additional garolite walls separate this compartment from the two segments, as well as high and low voltage sections of the pack circuitry itself.</p>"
+section = "fsae"
+
+[[media]]
+id = "pack-interfaces"
+media_type = "image"
+title = "Pack Interfaces"
+url = "media/bms/pack_drawing_connectors.svg"
+section = "fsae"
+description = "An exterior drawing of a battery pack. Each pack has a side mounted display panel for fault reporting, configuration, and charging, a Segment Maintenance Disconnect (SMD) switch, which breaks the connection between segments, and a panel of connectors that connect the pack to the car's other subsystems. <p>In addition to the display panel, each pack connects to the car's CAN bus, and is fully compliant with the CANOpen standard. This interface is used primarily for broadcasting information about the pack to the car's other subsystems, but can also be used to reconfigure pack behavior and control it at a high level. </p>"
+
+[[media]]
+id = "segment-diagram"
+media_type = "image"
+title = "Active Balancing"
+url = "media/bms/segment_diagram.svg"
+description = "Each segment is also equipped with an experimental active balancing circuit for redistributing power between cells during charging and discharging. In this design, each cell has a dedicated Flyback Converter which steps the nominal cell voltage up to that of the full segment, and feeds that into a dedicated \"Balance Bus\" that connects the output of each converter together in parallel. Jumpers on the highest and lowest cell in the segment allow current from the balance bus to flow back into the segment where it charges the other cells."
+# description = "This high level diagram shows how the active balancing circuit integrated into each Segment is intended to function. Flyback Converters on each CellMan board step up a Cell's Voltage to that of the full segment, and power is fed back into the segment through jumpers on the highest and lowest CellMen in the stack."
+section = "fsae"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "PacMan"
+url = "media/bms/pac_man_render.png"
+section = "fsae"
+description = "A render of the Pack Management Board, which is responsible for high level control of the BMS, power distribution, interfacing with the car's other subsystems, and making additional measurements not associated with a specific cell, such as output current and ambient pack temperature."
+
+[[media]]
+id = "cellman-render"
+media_type = "image"
+title = "CellMan Render"
+url = "media/bms/cell_man_render.png"
+section = "cellman"
+description = "A render of a single Cell Management Board with most components visible. CellMan is an I2C slave device that mounts to a prismatic cell and collects information about it, and it forms the building blocks of our Battery Management System. <p>Unlike the previous designs of this board, CellMan does not draw power from the Cell it is mounted to. Instead, each board draws its power from the pack as a whole through a shared DC to DC converter, allowing us to put all circuitry on a shared ground, simplifying communication and inter-cell wiring, and letting us disable all BMS functions with a single switch for maintenance and long term storage.</p>"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "Populated CellMan Board"
+url = "media/bms/cellman-populated.jpg"
+description = ""
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan Interfaces"
+url = "media/bms/cell_man_drawing.svg"
+section = "cellman"
+description = "CellMan's primary interface is a 6 pin IDC connector (J2) which provides a power and data connection back to PacMan through a single ribbon cable. Two slotted holes (Cell+, Cell-) secure the board in place mechanically, as well as provide electrical connections to the cell terminals. <p></p>"
+
+[[media]]
+id = "cellman-schematic-main"
+media_type = "image"
+title = "CellMan Schematic: Page 1"
+url = "media/bms/cell_man_schematic_main.svg"
+description = "CellMan is controlled by an 8 bit STM8 microcontroller that is responsible for interfacing with the I2C bus, sampling analog values from the board's measurement circuits, performing calibration, and controlling the board's flyback converter. <p>Firmware for the board is stored in the following repository: <a href=\"https://github.com/Lafayette-FSAE/CellManFirmware\">github.com/Lafayette-FSAE/CellManFirmware</a></p>"
+section = "cellman"
+
+[[media]]
+id = "cellman-schematic-measurements"
+media_type = "image"
+title = "CellMan Schematic: Measurements"
+url = "media/bms/cell_man_schematic_measurements.svg"
+section = "cellman"
+description = "The two most critical functions of the CellMan board are its voltage and temperature measurements. Because the CellMan boards do not share a ground with the cell they are measuring, voltage measurements are done using a special type of instrumentation amplifier (U5) with an extremely high Common Mode range and Common Mode Rejection Ratio. In this case, the amplifier needs to be able to accurately measure voltages at about 25 to 30 volts above its positive rail. <p>Temperature is measured using a thermistor and voltage divider network placed as close as possible to the cell's positive terminal. CellMan also measures the voltage of its cell's negative terminal through a discrete voltage divider (R18, R21) in order to determine its position in the segment.</p>"
+
+[[media]]
+id = "cellman-schematic-balanceing"
+media_type = "image"
+title = "CellMan Active Balancing Circuit"
+url = "media/bms/cell_man_schematic_balancing.svg"
+section = "cellman"
+description = "An isolated DC to DC converter on each CellMan helps to provide active balancing to the segment. A capacitor and diode clamping circuit (C10, R13, D6) is used to provide isolated control of the switching MOSFET (Q1) while removing DC voltages and thus preventing any fault condition where the switching MOSFET is held closed indefinitely."
+
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan Mounting Test"
+url = "media/bms/cellman-mounted-above.jpg"
+description = "An early version of CellMan mounted to a set of dead cells. A set of custom machined bus bars provide a high current path between the cells as well as mounting points for the CellMan boards. All mounting points are slotted to account for tolerances in the cell dimensions." 
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan Mounting: Side Profile"
+url = "media/bms/cellman-mounted-side-view.jpg"
+section = "cellman"
+description = ""
+
+# [[media]]
+# id = "flip"
+# title = ""
+# media_type = "image"
+# url = "media/flip_pixel/thumbnail.jpg"
+# description = ""
+# section = "flippixel"
+
+[[media]]
+id = "sparky"
+media_type = "model"
+url = "/media/flip_pixel/2018/top-level.gltf"
+section = "flippixel"
+title = "Flip Pixel: 5x5 Model"
+description = "This is a 3D model of a 5x5 Flip Pixel display based on where the design was at the end of 2018. Each disc contains a small magnet, and can be rotated to face one direction or the other by running current through a pair of solenoids that sit to either side of it."
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Single Pixel Test"
+media_type = "video"
+url = "media/flip_pixel/2018/demo.mp4"
+section = "flippixel"
+description = "A working demonstration or our first functional pixel. Its being driven by Half H bridges which we built on the prototyping board to the right, and controlled by an ESP-32 running micropython. The Half H bridges are each made up of 2 N channel MOSFETS, whose gates are driven by the combination of a smaller N channel MOSFET and pull up resistor, which allows the the ESP-32 to drive the gates of the high side MOSFETS with a 3.3V signal. We were hoping to eventually build several of these H Bridge modules and combine them to drive more and more pixels simultaneously."
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Half Flap Design"
+media_type = "model"
+url = "media/flip_pixel/2020/half_flap_model.glb"
+description = "Recently, we've been experimenting with a new mechanical design which we've coined the \"half flap\". This design cuts the disc in half, filling the empty space with a background insert that can be painted two different colors to match the orientation of the disc above. This allowed us to replace the two solenoids on either side of the disc with a single one directly underneath, which promised smaller magnets and less wasted screen space. <p>We also experimented with assembling the disc from two separate parts in order to more easily embed the magnet, as well as create distinct colors without the need for paint. Unfortunately, the magnetic properties of this design were significantly worse than the previous one, and we had to more or less scrap it.</p>"
+section = "flippixel"
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Half Flap Demo"
+media_type = "video"
+url = "media/flip_pixel/2020/flip-pixel-board-demo-2.mp4"
+section = "flippixel"
+description = "This is a video of the Half Flap in action. The current draw is very similar to what we were seeing in our initial design, but the force on the disc is much weaker, to the point where, when placed upright, it can only successfully flip in one direction. <p>This video also demonstrates our first attempt at building a printed circuit board for the project, which integrates a 5 by 5 pixel matrix, driving circuitry, power supply, and microcontroller, into one board. </p> "
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Evaluation Board"
+media_type = "image"
+url = "media/flip_pixel/2020/render_front.png"
+section = "flippixel"
+description = "The next revision of the Flip Pixel Evaluation Board."
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Evaluation Board Rear"
+media_type = "image"
+url = "media/flip_pixel/2020/render_back.png"
+description = ""
+section = "flippixel"
+
+# [[media]]
+# id = "flip-pixel-schematic-main"
+# title = ""
+# media_type = "image"
+# url = "media/flip_pixel/2020/v0.2/flip-pixel.svg"
+# description = ""
+# section = "flippixel"
+
+# [[media]]
+# id = "flip-pixel-schematic-controller"
+# title = "Flip Pixel Schematic: Microcontroller"
+# media_type = "image"
+# url = "media/flip_pixel/2020/v0.2/microcontroller-Controller.svg"
+# description = ""
+# section = "flippixel"
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Pixel Matrix"
+media_type = "image"
+url = "media/flip_pixel/2020/v0.2/PixelMatrix-PixelMatrix.svg"
+description = "This page shows the multiplexing scheme that allows us to drive larger grids of pixels without needing to dedicate a single H bridge to each one. Each column and each row are tied to a Half H bridge, which can be set to either high, low, or high impedance mode. A pixel can be flipped one direction by setting its column to high, its row to low, and all other Half H bridges to high impedance, and it can be reversed by doing the opposite. The diodes prevent current from finding alternate paths to ground by flowing backwards through the other solenoids. "
+section = "flippixel"
+
+
+# [[media]]
+# id = "grafana-dashboard"
+# media_type = "image"
+# title = "SCADA: Grafana Dashboard"
+# url = "media/scada/screenshots/grafana-finished-panel.png"
+# section = "scada"
+# description = ""
+
+# [[media]]
+# id = "scada-data-aquisition"
+# media_type = "image"
+# title = "SCADA: Functional Block Diagram"
+# url = "media/scada/data-aquisition.svg"
+# description = ""
+# section = "scada"
+
+# [[media]]
+# id = "scada-full-design"
+# media_type = "image"
+# title = "Planned Final Desigin for SCADA"
+# url = "media/scada/planned-final-design.svg"
+# description = ""
+# section = "scada"
+
