@@ -2,16 +2,10 @@
 
 #[macro_use] extern crate rocket;
 extern crate tera;
-
 mod content_parser;
 
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::Template;
-use comrak::{markdown_to_html, ComrakOptions};
-
-use std::collections::HashMap;
-
-use std::fs;
 
 #[get("/")]
 fn index() -> Template {
@@ -22,9 +16,8 @@ fn index() -> Template {
 fn main() {
 	rocket::ignite()
 		.attach(Template::fairing())
-		.mount("/", routes![index, page])
+		.mount("/", routes![index])
 		.mount("/stylesheets", StaticFiles::from("./public/stylesheets"))
-		.mount("/scripts", StaticFiles::from("./public/scripts"))
 		.mount("/fonts", StaticFiles::from("./public/fonts"))
 		.mount("/media", StaticFiles::from("../../Shared/portfolio_media"))
 		.launch();
