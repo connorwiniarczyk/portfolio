@@ -113,6 +113,15 @@
 
 	</section>
 
+	<div class="lightbox" id="gallery-test">
+		<div class="lightbox__container">
+			<a href="#close-lightbox" class="btn btn--close"></a>
+
+			<div class="lightbox__content">
+					<iframe class="lightbox__image" width="100%" src="http://connorwiniarczyk.com:3000/d/7EC4vm1Mz/precharge-circuit?orgId=1&from=1607364824978&to=1607386424978&kiosk" frameborder="0"></iframe>
+			</div>
+	</div>
+
 	{%for element in media%}
 		<div class="lightbox" id="gallery-{{loop.index}}">
 			<div class="lightbox__container">

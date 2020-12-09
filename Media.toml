@@ -24,9 +24,7 @@ media_type = "image"
 title = "Construction"
 url = "media/bms/pack_inside.jpg"
 description = "<p>Each battery is built of 16 Prismatic, Lithium Iron Phosphate Cells connected in series. The cells are divided into two segments of 8 cells each, which are isolated from eathother by a garolite wall. Segments are connected together by a large switch, called a Segment Maintenance Disconnect or SMD, which can be opened to completely disable the pack and prep it for safer maintenance.</p><p>A third compartment at the front of the pack is used to mount all electronics that are not a part of either segment, including the Pack Management (PacMan) board, the Pack Display Panel, fuses, and isolation relays. Additional garolite walls separate this compartment from the two segments, as well as high and low voltage sections of the pack circuitry itself.</p>"
-# description = "A picture of the inside of a partially assembled pack. All 16 Prismatic Cells are installed, 5 of which contain working Cell Management Boards, which are communicating with the barely visible PacMan board. Flexible BusBars connect the cell terminals to the pack's high voltage connectors and to the Segment Maintenance Disconnect"
 section = "fsae"
-
 
 [[media]]
 id = "pack-interfaces"
@@ -35,7 +33,6 @@ title = "Pack Interfaces"
 url = "media/bms/pack_drawing_connectors.svg"
 section = "fsae"
 description = "An exterior drawing of a battery pack. Each pack has a side mounted display panel for fault reporting, configuration, and charging, a Segment Maintenance Disconnect (SMD) switch, which breaks the connection between segments, and a panel of connectors that connect the pack to the car's other subsystems. <p>In addition to the display panel, each pack connects to the car's CAN bus, and is fully compliant with the CANOpen standard. This interface is used primarily for broadcasting information about the pack to the car's other subsystems, but can also be used to reconfigure pack behavior and control it at a high level. </p>"
-# description = "Each battery pack has a dedicated interface for configuration and troubleshooting, consisting of a 5 button panel, E-ink display, and 2 status LEDs."
 
 [[media]]
 id = "segment-diagram"
