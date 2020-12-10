@@ -5,8 +5,7 @@ ENV ROCKET_VERSION=v0.4.0
 RUN rustup default nightly && rustup update
 
 COPY . . 
-RUN cargo build
+RUN cargo build --release
+EXPOSE 8000
 
-EXPOSE 3000
-
-CMD cargo run
+CMD target/release/portfolio
