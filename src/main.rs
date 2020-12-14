@@ -25,7 +25,7 @@ pub struct Content {
 
 #[get("/")]
 fn index() -> Option<NamedFile> {
-    NamedFile::open("./public/index.html").ok()
+    NamedFile::open("/usr/public/index.html").ok()
 }
 
 #[get("/media")]
@@ -39,10 +39,9 @@ fn media_data() -> Option<Json<Content>> {
 fn main() {
 	rocket::ignite()
 		.mount("/", routes![index, media_data])
-		.mount("/stylesheets", StaticFiles::from("./public/stylesheets"))
-		.mount("/scripts", StaticFiles::from("./public/scripts"))
-		.mount("/fonts", StaticFiles::from("./public/fonts"))
-		.mount("/media", StaticFiles::from("../../Shared/portfolio_media"))
-		// .mount("/media", StaticFiles::from("./public/media"))
+		.mount("/stylesheets", StaticFiles::from("/usr/public/stylesheets"))
+		.mount("/scripts", StaticFiles::from("/usr/public/scripts"))
+		.mount("/fonts", StaticFiles::from("/usr/public/fonts"))
+		.mount("/media", StaticFiles::from("/usr/media"))
 		.launch();
 }
