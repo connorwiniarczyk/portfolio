@@ -18,13 +18,13 @@ a {
 	cursor: pointer;
 }
 
-ul li {
-	list-style: none;
-}
+/* ul li { */
+/* 	list-style: none; */
+/* } */
 
-ul {
-	padding: unset;
-}
+/* ul { */
+/* 	padding: unset; */
+/* } */
 
 
 /* Styles for slideshow */

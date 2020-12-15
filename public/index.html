@@ -2,6 +2,12 @@
 
 		<script type="text/javascript" src="scripts/main.js"></script>
 		
+		<!-- 3d Model Viewer -->
+		<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+		<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+		<link rel="stylesheet" href="stylesheets/prism.css">
+		<script data-manual src="scripts/prism.js"></script>
 		
 		<link rel="stylesheet" href="https://use.typekit.net/mnh5ihx.css">
 		<link rel="stylesheet" href="stylesheets/fonts.css">
@@ -53,18 +59,28 @@
 
 		<h1>#  CellMan</h1>
 		<p>CellMan is an abbreviation of Cell Management Board, a printed circuit board I designed for the FSAE battery pack above as part of its Battery Management System. Functionally, the BMS consists of a network of these CellMan boards controlled over I2C by a central Pack Management (PacMan) Board.</p>
-		
 		<p>Each CellMan mounts to a prismatic LiFePO cell and measures its voltage and temperature to be reported back to PacMan. Each CellMan Board also contains a flyback converter for facilitating an active balancing circuit between the cells.</p>
 
 		<div class="gallery gallery--cellman"></div>
 
 		<h1>#  Flip Pixel</h1>
 		<p> Flip Pixel is an attempt at creating an open source flip dot display for electronics hobbyists and other display enthusiasts. I started working on this with in 2018 with my friend Hayden Dodge, and it is still very much a work in progress. Initially, we conceived the idea for a school project when, after shopping online for a flip dot display we could play with, decided that they were way too expensive and that we could easily build our own for less money. We eventually found out that this wasn't true, but the project was interesting enough to keep us motivated even after the course ended. </p>
-
-<p>The display is built from a grid of small, 3D printed discs with small magnets embedded within them. They are free to rotate about one of their axes, and their orientation can be changed by passing current through a pair of solenoids that lie beneath each one.</p>
+		<p> The display is built from a grid of small, 3D printed discs with small magnets embedded within them. They are free to rotate about one of their axes, and their orientation can be changed by passing current through a pair of solenoids that lie beneath each one.</p>
 
 		<div class="gallery gallery--flippixel"></div>
 
+		<h1># SCADA</h1>
+
+		<p>On the Lafayette FSAE car, each subsystem exposes a CAN interface that it uses to broadcast data about its state to the rest of the car. SCADA is the system responsible for collecting, calibrating, and logging this data so that it can be presented to the team in an easy to digest format. It runs on a Raspberry Pi inside of the car's "CarMan" enclosure, and uses CAN traffic to determine the state of the Car.</p>
+		<p>The design of SCADA is influenced heavily by the Unix philosophy, in that it is composed of several smaller components, each of which is responsible for exactly one thing. In this case, the components are daemonized python scripts managed by systemd, which communicate with each other through a local Redis instance and form a highly configurable data pipeline.</p>
+
+		<div class="gallery gallery--scada"></div>
+
+		<ul style="text-decoration: unset;">
+			<li><a href="https://raw.githubusercontent.com/connorwiniarczyk/scada/master/documentation/manual.pdf">User Manual</a></li>
+			<li><a href="http://connorwiniarczyk.com:3000/d/7EC4vm1Mz/precharge-circuit?orgId=1">Interactive Demo</a></li>
+			<li><a href="https://github.com/connorwiniarczyk/scada"><span class="icon-github social-button" style="margin-right: 0.5rem;"></span>Project Repository</a></li>
+		</ul>
 
 	</section>
 
@@ -93,9 +109,4 @@
 			</div>
 	</template>
 	</body>
-
-
-	<!-- 3d Model Viewer -->
-	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 </html>

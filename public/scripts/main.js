@@ -3,7 +3,6 @@ const json_fetch = url => window.fetch(url)
 	.then(value => [null, value])
 	.catch(err => [err, null])
 
-
 // clones a template element, populates fields
 // with data from a data object, (using handlebars notation)
 // ie. {{...}} and returns the new node
@@ -33,7 +32,8 @@ function clone_template(template, data){
 const media_types = {
 	"image": `<img loading="lazy" class="lightbox__image" style="object-fit: contain;" src="{{url}}"></img>`,
 	"video": `<video class="lightbox__image" controls src="{{url}}"></video>`,
-	"model": `<model-viewer class="lightbox__image model" src="{{url}}" autorotate camera-controls></model-viewer>`
+	"model": `<model-viewer class="lightbox__image model" src="{{url}}" autorotate camera-controls></model-viewer>`,
+	"code-snippet": `<pre class="lightbox__image code-snippet" data-src={{url}}></pre>`,
 }
 
 async function load_media() {
@@ -58,6 +58,9 @@ async function load_media() {
 		const lightbox = clone_template('#lightbox-template', data)
 		document.body.appendChild(lightbox)
 	})
+
+	Prism.highlightElement(code)
+
 }
 
 window.onload = function(){
