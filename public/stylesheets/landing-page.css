@@ -25,7 +25,11 @@
 	padding: 1rem;
 }
 
-
+.landing-page ul {
+	list-style: none;
+	margin-left: 0;
+	padding: 0;
+}
 
 .landing__name {
 	text-align: center;
@@ -50,9 +54,4 @@
 
 .landing__link:hover {
 	font-weight: 500;
-}
-
-
-.landing__details li {
-	/* margin-bottom: 0.2rem; */
 }
