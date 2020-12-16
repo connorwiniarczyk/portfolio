@@ -57,10 +57,9 @@ async function load_media() {
 
 		const lightbox = clone_template('#lightbox-template', data)
 		document.body.appendChild(lightbox)
+
+		if (value.media_type == "code-snippet") Prism.highlightElement(lightbox.querySelector('.lightbox__image'))
 	})
-
-	Prism.highlightElement(code)
-
 }
 
 window.onload = function(){
