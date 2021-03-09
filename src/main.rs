@@ -1,8 +1,12 @@
 mod content;
 mod error;
+mod config;
+
+use config::Config;
 
 use rouille::Request;
 use rouille::Response;
+use rouille::router;
 use crate::content::Content;
 use std::fs::File;
 
@@ -39,8 +43,6 @@ mod routes {
 	}
 }
 
-
-use rouille::router;
 fn server(request: &Request) -> Response {
 	router!{ request,
 		(GET) (/) 		=> { routes::index() },
@@ -50,10 +52,8 @@ fn server(request: &Request) -> Response {
 }
 
 fn main() {
+	let config = config::get_config("Config.toml");
 
-	let port = 8000;
-	let host = "0.0.0.0";
-
-	let listen_address = format!("{}:{}", host, port);
+	let listen_address = format!("{}:{}", config.bind_address, config.port);
 	rouille::start_server(&listen_address, server);
 }
