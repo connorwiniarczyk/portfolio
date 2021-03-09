@@ -1,48 +1,59 @@
-#![feature(proc_macro_hygiene, decl_macro)]
+mod content;
+mod error;
 
-#[macro_use] extern crate rocket;
+use rouille::Request;
+use rouille::Response;
+use crate::content::Content;
+use std::fs::File;
 
-use rocket_contrib::serve::StaticFiles;
-use rocket_contrib::json::Json;
-use rocket::response::NamedFile;
+mod routes {
+	use crate::content::Content;
+	use std::fs::File;
+	use rouille::Response;
 
-use serde::{Serialize, Deserialize};
-
-#[derive(Serialize, Deserialize)]
-pub struct Media {
-	pub url: String,
-    pub media_type: String,
-	pub id: Option<String>,
-	pub title: Option<String>,
-    pub description: Option<String>,
-    pub section: Option<String>,
+	/// route for /media
+	/// returns json object with the contents of the Media.toml file
+	pub fn media() -> Response {
+		match Content::from_toml_file("Media.toml") {
+			Ok(content) => Response::json(&content),
+			Err(error) => {
+				println!("error reading Media.toml:");
+				println!("{:?}", error);
+				Response::empty_404()
+			}
+		}
+	}
+	
+	/// route for /
+	/// returns the index.html page
+	pub fn index() -> Response {
+		match File::open("public/index.html") {
+			Ok(file) => Response::from_file("text/html", file),
+			Err(error) => {
+				println!("error reading index.html:");
+				println!("{:?}", error);
+				Response::empty_404()
+			}
+	
+		}
+	}
 }
 
-#[derive(Serialize, Deserialize)]
-pub struct Content {
-    pub media: Vec<Media>,
-}
 
-#[get("/")]
-fn index() -> Option<NamedFile> {
-    NamedFile::open("./public/index.html").ok()
-}
-
-#[get("/media")]
-fn media_data() -> Option<Json<Content>> {
-    let file = std::fs::read_to_string("Media.toml").unwrap();
-    let data: Content = toml::from_str(&file).unwrap();
-
-    Some(Json(data))
+use rouille::router;
+fn server(request: &Request) -> Response {
+	router!{ request,
+		(GET) (/) 		=> { routes::index() },
+		(GET) (/media) 	=> { routes::media() },
+		_ 				=> { rouille::match_assets(request, "./public") },
+	}
 }
 
 fn main() {
-	rocket::ignite()
-		.mount("/", routes![index, media_data])
-		.mount("/stylesheets", StaticFiles::from("./public/stylesheets"))
-		.mount("/scripts", StaticFiles::from("./public/scripts"))
-		.mount("/fonts", StaticFiles::from("./public/fonts"))
-		.mount("/media", StaticFiles::from("../../Shared/portfolio_media"))
-		// .mount("/media", StaticFiles::from("./public/media"))
-		.launch();
+
+	let port = 8000;
+	let host = "0.0.0.0";
+
+	let listen_address = format!("{}:{}", host, port);
+	rouille::start_server(&listen_address, server);
 }
