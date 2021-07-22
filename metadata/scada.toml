@@ -1,0 +1,34 @@
+# SCADA
+
+[[media]]
+id = "scada-data-aquisition"
+media_type = "image"
+title = "SCADA Services"
+url = "media/svg/scada_service_model.svg"
+description = "SCADA is composed of a sorter, calibrator, and logger, which run as daemons and communicate with each other through a Redis instance. The Sorter listens to the CAN bus for incoming messages and translates the data into a series of key value pairs. The calibrator transforms the data based on a set of user defined calibration functions, and the logger write the data into an SQL table where it can be viewed as a time series."
+section = "scada"
+
+[[media]]
+id = "grafana-dashboard"
+media_type = "image"
+title = "SCADA: Grafana Dashboard"
+url = "media/png/grafana-finished-panel.png"
+section = "scada"
+description = "SCADA does not include a GUI by default, but tries to make it as simple as possible for users to write their own. Because it stores all of its data in a Redis or Postgres instance, any tool that can be used for interfacing with these programs can also be used as a SCADA interface. In this example, we set up a Grafana dashboard to pull data from the Postgres Database over the internet and plot it in real time in a web browser."
+
+[[media]]
+id = "scada-full-design"
+media_type = "code-snippet"
+title = "User Calibration"
+url = "https://raw.githubusercontent.com/connorwiniarczyk/scada/containerized/config/user_cal.py"
+description = "SCADA can be configured to do arbitrary transformations of incoming data through a series of user defined calibration functions. Calibration functions are declared with the @cal_function decorator, which specifies a list of Redis keys that will be used as inputs to the function, and the Redis key where it will write its output. <p>This example shows off several calibration functions that were used by the 2020 FSAE team and demonstrate the system's flexibility. </p>"
+section = "scada"
+
+[[media]]
+id = "scada-full-design"
+media_type = "image"
+title = "Planned Final Design for SCADA"
+url = "media/svg/scada_final_design.svg"
+description = "One of the main goals for SCADA was to build a highly composable system that could be easily added to or modified to meet the needs of future teams without needing to rewrite core functionality. This diagram shows an example of a future SCADA system with additional services and a more complete set of features."
+section = "scada"
+

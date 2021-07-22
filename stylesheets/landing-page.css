@@ -1,7 +1,7 @@
 /* styles for the landing page */
 
 .landing-page {
-	background-image: url(/media/personal/background.svg);
+	background-image: url(/media/svg/background.svg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;

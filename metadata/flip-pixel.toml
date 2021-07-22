@@ -1,0 +1,148 @@
+# FLIP PIXEL
+
+[[media]]
+id = "flip"
+title = ""
+media_type = "image"
+thumbnail = "media/png/flip_pixel_design_simple.png"
+url = "media/png/flip_pixel_design.png"
+description = ""
+section = "flippixel"
+
+[[media]]
+id = "sparky"
+media_type = "model"
+url = "/media/gltf/flip-pixel-array.gltf"
+thumbnail = "/media/jpg/flip_pixel_array.jpg"
+section = "flippixel"
+title = "Flip Pixel: 5x5 Model"
+description = "This is a 3D model of a 5x5 Flip Pixel display based on where the design was at the end of 2018. Each disc contains a small magnet, and can be rotated to face one direction or the other by running current through a pair of solenoids that sit to either side of it."
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Single Pixel Test"
+media_type = "video"
+thumbnail = "/media/jpg/flip_pixel_demo_thumb.jpg"
+url = "media/mp4/flip_pixel_demo.mp4"
+section = "flippixel"
+description = "A working demonstration or our first functional pixel. Its being driven by Half H bridges which we built on the prototyping board to the right, and controlled by an ESP-32 running micropython. The Half H bridges are each made up of 2 N channel MOSFETS, whose gates are driven by the combination of a smaller N channel MOSFET and pull up resistor, which allows the the ESP-32 to drive the gates of the high side MOSFETS with a 3.3V signal. We were hoping to eventually build several of these H Bridge modules and combine them to drive more and more pixels simultaneously."
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "H-Bridge Driver Circuit"
+media_type = "image"
+url = "media/jpg/quad-half-bridge.jpg"
+section = "flippixel"
+description = """
+This is a driver circuit I built to help run early tests of Flip Pixels. It can
+be seen in the demo video driving our first ever working pixel. The circuit is 
+made of 4 independent Half H Bridges made with two N Channel MOSFETS each. Any
+two Half H Bridges could be combined to drive a single pixel, or multiple could
+be combined to drive a much larger matrix of pixels via multiplexing. 
+"""
+
+[[media]]
+title = "H Bridge: Traces"
+media_type = "image"
+url = "media/jpg/quad-half-bridge-traces.jpg"
+section = "flippixel"
+description = """
+Before I knew how to design and order PCBs, I would do a sort of DIY
+version of them by drawing traces onto a perf board with solder. This picture
+is of the underside of the Half H Bridge array and shows the connections 
+between components. While I honestly can't recommend this technique to anybody,
+the resulting aesthetic is really cool.
+"""
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Pixel Matrix"
+media_type = "image"
+url = "media/svg/flip_pixel_schematic_matrix.svg"
+section = "flippixel"
+description = "This page shows the multiplexing scheme that allows us to drive larger grids of pixels without needing to dedicate a single H bridge to each one. Each column and each row are tied to a Half H bridge, which can be set to either high, low, or high impedance mode. A pixel can be flipped one direction by setting its column to high, its row to low, and all other Half H bridges to high impedance, and it can be reversed by doing the opposite. The diodes prevent current from finding alternate paths to ground by flowing backwards through the other solenoids. "
+
+[[media]]
+id = "flip-pixel-2018-demo"
+title = "Flip Pixel: Half Flap Design"
+media_type = "model"
+url = "media/gltf/half_flap_model.glb"
+thumbnail = "media/png/half_flap_thumb.png"
+section = "flippixel"
+description = """
+Recently, we've been experimenting with a new mechanical design which we've
+coined the \"half flap\". This design cuts the disc in half, filling the empty
+space with a background insert that can be painted two different colors to
+match the orientation of the disc above. This allowed us to replace the two
+solenoids on either side of the disc with a single one directly underneath,
+which promised smaller magnets and less wasted screen space.
+<p>
+We also experimented with assembling the disc from two separate parts in order
+to more easily embed the magnet, as well as create distinct colors without the
+need for paint. Unfortunately, the magnetic properties of this design were
+significantly worse than the previous one, and we had to more or less scrap
+it.
+</p>
+"""
+
+[[media]]
+title = "H Bridge: Op Amp"
+media_type = "image"
+url = "media/jpg/h-bridge.jpg"
+section = "flippixel"
+description = """
+This is an earlier version of the H bridge shown earlier that uses an
+Operational Amplifier to generate driving signals for the MOSFETS instead of 
+discrete transistors. 
+"""
+
+[[media]]
+title = "H Bridge: Op Amp Traces"
+media_type = "image"
+url = "media/jpg/h-bridge-traces.jpg"
+section = "flippixel"
+description = """
+Traces for the H Bridge circuit shown earlier
+"""
+
+
+# [[media]]
+# id = "flip-pixel-2018-demo"
+# title = "Flip Pixel: Half Flap Demo"
+# media_type = "video"
+# url = "media/mp4/half_flap_demo_2.mp4"
+# section = "flippixel"
+# description = "This is a video of the Half Flap in action. The current draw is very similar to what we were seeing in our initial design, but the force on the disc is much weaker, to the point where, when placed upright, it can only successfully flip in one direction. <p>This video also demonstrates our first attempt at building a printed circuit board for the project, which integrates a 5 by 5 pixel matrix, driving circuitry, power supply, and microcontroller, into one board. </p> "
+
+# [[media]]
+# id = "flip-pixel-2018-demo"
+# title = "Flip Pixel: Evaluation Board"
+# media_type = "image"
+# url = "media/png/render_front.png"
+# section = "flippixel"
+# description = "The next revision of the Flip Pixel Evaluation Board."
+
+# [[media]]
+# id = "flip-pixel-2018-demo"
+# title = "Flip Pixel: Evaluation Board Rear"
+# media_type = "image"
+# url = "media/png/render_back.png"
+# description = ""
+# section = "flippixel"
+
+# [[media]]
+# id = "flip-pixel-schematic-main"
+# title = ""
+# media_type = "image"
+# url = "media/flip_pixel/2020/v0.2/flip-pixel.svg"
+# description = ""
+# section = "flippixel"
+
+# [[media]]
+# id = "flip-pixel-schematic-controller"
+# title = "Flip Pixel Schematic: Microcontroller"
+# media_type = "image"
+# url = "media/flip_pixel/2020/v0.2/microcontroller-Controller.svg"
+# description = ""
+# section = "flippixel"
+

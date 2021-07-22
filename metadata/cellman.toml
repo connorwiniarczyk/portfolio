@@ -1,0 +1,78 @@
+# CELL MAN
+
+#[[media]]
+#id = "cellman-render"
+#media_type = "image"
+#title = "CellMan Render"
+#url = "media/png/cell_man_render.png"
+#section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "Populated CellMan Board"
+url = "media/jpg/cellman-populated.jpg"
+section = "cellman"
+description = """
+<p>
+An Assembled CellMan PCB. CellMan is an I2C slave device that mounts to a
+prismatic cell and collects information about it, and it forms the building
+blocks of the team's Battery Management System.
+</p>
+
+<p>
+CellMan does not draw power from the Cell it is mounted to.
+Instead, each board draws its power from the pack as a whole through a shared
+DC to DC converter, allowing us to put all circuitry on a shared ground,
+simplifying communication and inter-cell wiring, and letting us disable all
+BMS functions with a single switch for maintenance and long term storage.
+</p>
+"""
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan Interfaces"
+url = "media/svg/cell_man_drawing.svg"
+section = "cellman"
+description = "CellMan's primary interface is a 6 pin IDC connector (J2) which provides a power and data connection back to PacMan through a single ribbon cable. Two slotted holes (Cell+, Cell-) secure the board in place mechanically, as well as provide electrical connections to the cell terminals. <p></p>"
+
+[[media]]
+id = "cellman-schematic-main"
+media_type = "image"
+title = "CellMan Schematic: Page 1"
+url = "media/svg/cell_man_schematic_main.svg"
+description = "CellMan is controlled by an 8 bit STM8 microcontroller that is responsible for interfacing with the I2C bus, sampling analog values from the board's measurement circuits, performing calibration, and controlling the board's flyback converter. <p>Firmware for the board is stored in the following repository: <a href=\"https://github.com/Lafayette-FSAE/CellManFirmware\">github.com/Lafayette-FSAE/CellManFirmware</a></p>"
+section = "cellman"
+
+[[media]]
+id = "cellman-schematic-measurements"
+media_type = "image"
+title = "CellMan Schematic: Measurements"
+url = "media/svg/cell_man_schematic_measurements.svg"
+section = "cellman"
+description = "The two most critical functions of the CellMan board are its voltage and temperature measurements. Because the CellMan boards do not share a ground with the cell they are measuring, voltage measurements are done using a special type of instrumentation amplifier (U5) with an extremely high Common Mode range and Common Mode Rejection Ratio. In this case, the amplifier needs to be able to accurately measure voltages at about 25 to 30 volts above its positive rail. <p>Temperature is measured using a thermistor and voltage divider network placed as close as possible to the cell's positive terminal. CellMan also measures the voltage of its cell's negative terminal through a discrete voltage divider (R18, R21) in order to determine its position in the segment.</p>"
+
+[[media]]
+id = "cellman-schematic-balanceing"
+media_type = "image"
+title = "CellMan Active Balancing Circuit"
+url = "media/svg/cell_man_schematic_balancing.svg"
+section = "cellman"
+description = "An isolated DC to DC converter on each CellMan helps to provide active balancing to the segment. A capacitor and diode clamping circuit (C10, R13, D6) is used to provide isolated control of the switching MOSFET (Q1) while removing DC voltages and thus preventing any fault condition where the switching MOSFET is held closed indefinitely."
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan Mounting Test"
+url = "media/jpg/cellman-mounted-above.jpg"
+description = "An early version of CellMan mounted to a set of dead cells. A set of custom machined bus bars provide a high current path between the cells as well as mounting points for the CellMan boards. All mounting points are slotted to account for tolerances in the cell dimensions." 
+section = "cellman"
+
+[[media]]
+id = "cellman-interfaces"
+media_type = "image"
+title = "CellMan Mounting: Side Profile"
+url = "media/jpg/cellman-mounted-side-view.jpg"
+section = "cellman"
+description = ""

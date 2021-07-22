@@ -37,17 +37,24 @@ const media_types = {
 }
 
 async function load_media() {
-	const [err, media] = await json_fetch("/media")
+	const [err, media] = await json_fetch("/metadata")
 
 	if(err) {
 		console.error(`error fetching media metadata: ${err}`)
 		return
 	}	
 	
-	media.media.forEach(function(value, index){
+	media.forEach(function(value, index){
 		index = index + 1
 		const media = (media_types[value.media_type] || "").replace("{{url}}", value.url)
-		data = {media, index, next_index: index + 1, prev_index: index - 1, ...value}
+		data = { 
+			media,
+			thumbnail: value.thumbnail || value.url,
+			index,
+			next_index: index + 1,
+			prev_index: index - 1,
+			...value
+		}
 
 		const gallery_link = clone_template('#gallery-link-template', data)
 		const target = document.querySelector(`.gallery--${data.section}`)
