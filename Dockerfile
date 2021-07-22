@@ -1,16 +1,21 @@
 from rust:latest as builder
-copy ./server/src /build/src
-copy ./server/Cargo.toml /build/Cargo.toml
-workdir /build
-run cargo build --release
 
-from debian:buster-slim
-copy --from=builder /build/target/release/server /usr/bin/server
+run git clone https://github.com/connorwiniarczyk/serv.git
+workdir serv
 
-copy ./production_config.toml /etc/server/config.toml
-copy ./Media.toml /etc/server/Media.toml
+# Use the MUSL Libc target to compile the binary without dynamic linking
+# idea from here:
+# https://doc.rust-lang.org/edition-guide/rust-2018/platform-and-target-support/musl-support-for-fully-static-binaries.html
+run rustup target add x86_64-unknown-linux-musl
+run rustup update
+run cargo install --path . --target x86_64-unknown-linux-musl
 
-copy ./public /public
+from alpine:latest
+
+copy --from=builder /usr/local/cargo/bin/serv /usr/bin/serv
+
+workdir /www
+copy . .
 
 expose 80
-cmd /usr/bin/server
+cmd /usr/bin/serv -p 80

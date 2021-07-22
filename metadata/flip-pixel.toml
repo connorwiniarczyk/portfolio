@@ -2,12 +2,20 @@
 
 [[media]]
 id = "flip"
-title = ""
+title = "Mechanism"
 media_type = "image"
 thumbnail = "media/png/flip_pixel_design_simple.png"
 url = "media/png/flip_pixel_design.png"
-description = ""
 section = "flippixel"
+description = """
+A drawing of a pixel array next to an exploded view of a single one. The two
+solenoids (Bottom) are wired in series with each other and wound in such a way
+as to produce opposing magnetic fields when energized. By passing current
+through these solenoids, torque can be applied to a small magnet in the freely
+rotating disc (Top), pushing it into one of two stable orientations. By
+coloring each side of this disc differently, it can be used a crude
+electro-mechanical pixel, and an array of them could be used as a display.
+"""
 
 [[media]]
 id = "sparky"
